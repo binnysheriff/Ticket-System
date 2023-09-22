@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Submit Ticket{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Submit a New Ticket</h2>
+            <form method="post" action="{% url 'submit_ticket' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
