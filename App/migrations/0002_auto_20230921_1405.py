@@ -4,20 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('App', '0001_initial'),
+        ("App", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='ticket',
-            name='priority',
-            field=models.CharField(choices=[('high', 'High'), ('medium', 'Medium'), ('low', 'Low')], default='medium', max_length=10),
+            model_name="ticket",
+            name="priority",
+            field=models.CharField(
+                choices=[("high", "High"), ("medium", "Medium"), ("low", "Low")],
+                default="medium",
+                max_length=10,
+            ),
         ),
         migrations.AlterField(
-            model_name='ticket',
-            name='title',
+            model_name="ticket",
+            name="title",
             field=models.CharField(max_length=255),
         ),
     ]
