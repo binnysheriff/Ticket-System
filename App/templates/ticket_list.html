@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket List</title>
+</head>
+<body>
+    <h1>Ticket List</h1>
+    <ul>
+        {% for ticket in tickets %}
+            <li><a href="{% url 'view_ticket' ticket_id %}">{{ ticket.title }}</a></li>
+        {% empty %}
+            <li>No tickets found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
