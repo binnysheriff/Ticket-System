@@ -3,6 +3,7 @@ import contextlib
 from django import forms
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+
 # from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -61,8 +62,7 @@ def view_ticket(request, ticket_id):
         text = request.POST["comment_text"]
         Comment.objects.create(text=text, user=request.user, ticket=ticket)
     return render(
-        request, "tickets/view_ticket.html",
-        {"ticket": ticket, "comments": comments}
+        request, "tickets/view_ticket.html", {"ticket": ticket, "comments": comments}
     )
 
 

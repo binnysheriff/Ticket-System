@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Support Ticket System</title>
+    <!-- Add CSS and JavaScript links here -->
+</head>
+<body>
+    <header>
+        <h1>Support Ticket System</h1>
+        <!-- Navigation links -->
+    </header>
+
+    <main>
+        <section>
+            <h2>Welcome to Our Support System</h2>
+            <p>Submit your support requests here and track their progress.</p>
+        </section>
+
+        <section>
+            <h3>Submit a New Ticket</h3>
+            <form action="/submit-ticket" method="post">
+                <!-- Input fields for the ticket -->
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="description" placeholder="Describe your issue" required></textarea>
+                <button type="submit">Submit Ticket</button>
+            </form>
+        </section>
+
+        <!-- Section for listing existing tickets (optional) -->
+
+    </main>
+
+    <footer>
+        <p>Contact us at support@example.com</p>
+        <!-- Additional footer content -->
+    </footer>
+</body>
+</html>
