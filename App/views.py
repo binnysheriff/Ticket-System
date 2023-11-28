@@ -21,11 +21,28 @@ class Index(TemplateView):
 class TicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
-        fields = ["title", "description", "priority"]
+        fields = ["title", "description", "priority", "created_by"]
         widgets = {
-            "title": forms.TextInput(attrs={"class": "form-control"}),
-            "description": forms.Textarea(attrs={"class": "form-control"}),
-            "priority": forms.Select(attrs={"class": "form-control"}),
+            "title": forms.TextInput(
+                attrs={
+                    "class": "form-control w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                }
+            ),
+            "description": forms.Textarea(
+                attrs={
+                    "class": "form-control w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                }
+            ),
+            "priority": forms.Select(
+                attrs={
+                    "class": "form-control w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                }
+            ),
+            "created_by": forms.Select(
+                attrs={
+                    "class": "form-control w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                }
+            )
         }
 
 
@@ -82,7 +99,7 @@ class SubmitTicketView(FormView):
     template_name = "submit_ticket.html"
     form_class = TicketForm
     # Change to where you want to redirect after a submission
-    success_url = reverse_lazy("submit_ticket")
+    success_url = reverse_lazy("index")
 
     def form_valid(self, form):
         # save the form instance if it's valid
