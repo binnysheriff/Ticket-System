@@ -3,16 +3,33 @@
 {% block title %}Submit Ticket{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Submit a New Ticket</h2>
-            <form method="post" action="{% url 'submit_ticket' %}">
+<div class="container mx-auto mt-8">
+    <div class="flex flex-wrap">
+        <div class="w-full">
+            <h2 class="text-2xl font-bold mb-4">Submit a New Ticket</h2>
+            <!-- Updated form action to ensure trailing slash -->
+            <form method="post" action="{% url 'submit_ticket' %}/" class="space-y-4">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- Styling form fields with Tailwind CSS -->
+                <div class="space-y-2">
+                    {% for field in form %}
+                    <div>
+                        <label for="{{ field.id_for_label }}" class="block text-gray-700">{{ field.label }}</label>
+                        {{ field|add_class:"w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" }}
+                        {% if field.help_text %}
+                        <p class="text-sm text-gray-600">{{ field.help_text }}</p>
+                        {% endif %}
+                        {% for error in field.errors %}
+                        <p class="text-red-500 text-xs italic">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Submit</button>
             </form>
         </div>
     </div>
 </div>
 {% endblock %}
+
+

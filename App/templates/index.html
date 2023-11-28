@@ -2,29 +2,30 @@
 <html>
 <head>
     <title>Support Ticket System</title>
-    <!-- Add CSS and JavaScript links here -->
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>Support Ticket System</h1>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white text-center p-4 shadow-md">
+        <h1 class="text-3xl font-bold">Support Ticket System</h1>
         <!-- Navigation links -->
     </header>
 
-    <main>
-        <section>
-            <h2>Welcome to Our Support System</h2>
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold">Welcome to Our Support System</h2>
             <p>Submit your support requests here and track their progress.</p>
         </section>
 
-        <section>
-            <h3>Submit a New Ticket</h3>
-            <form action="/submit-ticket" method="post">
+        <section class="bg-white p-6 rounded shadow-md">
+            <h3 class="text-xl font-semibold mb-4">Submit a New Ticket</h3>
+            <form action="/submit-ticket" method="post" class="space-y-4">
                 <!-- Input fields for the ticket -->
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="subject" placeholder="Subject" required>
-                <textarea name="description" placeholder="Describe your issue" required></textarea>
-                <button type="submit">Submit Ticket</button>
+                <input type="text" name="name" placeholder="Your Name" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                <input type="email" name="email" placeholder="Your Email" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                <input type="text" name="subject" placeholder="Subject" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                <textarea name="description" placeholder="Describe your issue" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"></textarea>
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Submit Ticket</button>
             </form>
         </section>
 
@@ -32,7 +33,7 @@
 
     </main>
 
-    <footer>
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
         <p>Contact us at support@example.com</p>
         <!-- Additional footer content -->
     </footer>
