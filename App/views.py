@@ -105,3 +105,6 @@ class SubmitTicketView(FormView):
         # save the form instance if it's valid
         form.save()
         return super().form_valid(form)
+
+    def index_html(request):
+        return render(request, "index.html")
