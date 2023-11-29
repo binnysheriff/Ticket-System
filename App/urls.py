@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
     path("", views.ticket_list, name="index"),  # Assuming Index is your homepage
-    # path("index.html", views.index_html, name="index_html"),
     path("create-ticket/", views.create_ticket, name="create_ticket"),
     path("ticket-list/", views.Index.as_view(), name="ticket_list"),
     path("ticket/<int:ticket_id>/", views.view_ticket, name="view_ticket"),

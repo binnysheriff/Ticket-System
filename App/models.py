@@ -9,6 +9,9 @@ class Ticket(models.Model):
         ("low", "Low"),
     ]
 
+    def __str__(self) -> str:
+        return self.title
+
     title = models.CharField(max_length=255)
     description = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -24,3 +27,6 @@ class Comment(models.Model):
     text = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.ticket
